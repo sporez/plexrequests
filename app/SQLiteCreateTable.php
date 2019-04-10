@@ -23,18 +23,12 @@ class SQLiteCreateTable {
      * create tables 
      */
     public function createTables() {
-        $commands = ['CREATE TABLE IF NOT EXISTS users (
-                        uid   INTEGER PRIMARY KEY,
-                        email TEXT NOT NULL,
-                        password TEXT NOT NULL
-                      )',
+        $commands = [
             'CREATE TABLE IF NOT EXISTS requests (
                     rid INTEGER PRIMARY KEY,
                     title  VARCHAR (255) NOT NULL,
-                    uid  INTEGER NOT NULL,
-                    FOREIGN KEY (uid)
-                    REFERENCES users(uid) ON UPDATE CASCADE
-                                                    ON DELETE CASCADE)'];
+                    release_year VARCHAR(255) NOT NULL,
+                    username VARCHAR(255) NOT NULL)'];
         // execute the sql commands to create new tables
         foreach ($commands as $command) {
             $this->pdo->exec($command);

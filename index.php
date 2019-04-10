@@ -68,26 +68,26 @@ $app->post('/requests', function ($request, $response, $args) {
 })->setName('newRequest');
 
 //USERS
-$app->get('/users', function ($request, $response, $args) {
+// $app->get('/users', function ($request, $response, $args) {
 
-    $pdo = (new SQLiteConnection())->connect();
-    $sqlite = new SQLiteGet($pdo);
+//     $pdo = (new SQLiteConnection())->connect();
+//     $sqlite = new SQLiteGet($pdo);
 
-    $res = $sqlite->getUsers();
+//     $res = $sqlite->getUsers();
     
-    return $response->getBody()->write($res);
-})->setName('getUsers');
+//     return $response->getBody()->write($res);
+// })->setName('getUsers');
 
-$app->get('/users/{uid}', function ($request, $response, $args) {
+// $app->get('/users/{uid}', function ($request, $response, $args) {
 
-    $pdo = (new SQLiteConnection())->connect();
-    $sqlite = new SQLiteGet($pdo);
+//     $pdo = (new SQLiteConnection())->connect();
+//     $sqlite = new SQLiteGet($pdo);
 
-    $uid = filter_var($args['uid'], FILTER_SANITIZE_NUMBER_INT);
-    $res = $sqlite->getUsers($uid);
+//     $uid = filter_var($args['uid'], FILTER_SANITIZE_NUMBER_INT);
+//     $res = $sqlite->getUsers($uid);
     
-    return $response->getBody()->write($res);
-})->setName('getUser');
+//     return $response->getBody()->write($res);
+// })->setName('getUser');
 
 // $app->get('/', function ($request, $response, $args) {
 //     return $this->view->render($response, 'index.twig');

@@ -21,33 +21,6 @@ class SQLiteGet {
         $this->pdo = $pdo;
     }
  
-    /**
-     * Get users from the users table
-     */
-    public function getUsers($uid = null) {
-
-        if($uid != null)
-        {
-            $sql = 'SELECT * FROM users WHERE uid = :uid';
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                ':uid' => $uid,
-            ]);
-        }
-        else
-        {
-            $sql = 'SELECT * FROM users';
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute();
-        }
-
-        $users = [];
-        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-            $users[$row['uid']] = $row['email'];
-        }   
- 
-        return json_encode($users);
-    }
 
     public function getRequests($rid = null) {
 
